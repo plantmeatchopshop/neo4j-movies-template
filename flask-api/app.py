@@ -656,7 +656,7 @@ class MovieListRecommended(Resource):
                 AND abs(my.rating - their.rating) < 2
                 WITH other,m
                 MATCH (other)-[otherRating:RATED]->(movie:Movie)
-                WHERE movie <> m 
+                WHERE movie <> m
                 WITH avg(otherRating.rating) AS avgRating, movie
                 RETURN movie
                 ORDER BY avgRating desc
